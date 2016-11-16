@@ -1,0 +1,42 @@
+html
+	head
+		title #{title}
+		link( href="/css/materialize.min.css" type="text/css" rel="stylesheet" )
+		link( href="/custom.css" type="text/css" rel="stylesheet" )
+	body
+		nav
+			div.nav-wrapper
+				a#logo.brand-logo User Information App
+				ul.right
+					li
+						a(href="/addUser") Add User
+					li
+						a(href="/") User List
+					li
+						a(href="/search") Search User
+		div#header.valign-wrapper
+			div.row.valign
+				div.col.l12
+					h1.center.white-text 
+		main
+			div.container
+				div.row
+					div.col.l8.offset-l2
+						div#topcard.card
+							div.card-content
+								form(id='contact' method='POST' action='/search')
+									div(class='container')
+										div(class='head')
+											h2 USER LIST
+
+										each thing in data
+											p #{thing.firstName} #{thing.lastName}: #{thing.email}
+
+										br
+		footer.page-footer
+			div.container
+				div.footer-copyright
+				div.container.grey-text © 2016 Ilana Enderman
+		script( src="/jquery-3.1.1.min.js" )
+		script( src="/js/materialize.min.js" )
+		script( src="/custom.js" )
